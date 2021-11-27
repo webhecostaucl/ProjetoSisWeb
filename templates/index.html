@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cad</title>
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
+  </head>
+  <body>
+  <h1>Favor alterar o usuário do banco no app.py</h1>
+    <main class="principal">
+      <section class="formLogin">
+        <form class="forms">
+          <div>
+            <label for="usuario">Usuário</label>
+            <input type="text" name="usuarioLogin" id="usuarioLogin" />
+          </div>
+          <div>
+            <label for="senha">Senha</label>
+            <input type="password" name="senhaLogin" id="senhaLogin" />
+          </div>
+          <button type="button" onclick="login()">Login</button>
+          <span onclick="showCad()">Criar usuário</span>
+        </form>
+      </section>
+      <section class="formCad">
+        <form autocomplete="off" class="forms">
+          <div>
+            <label for="usuario">Usuário</label>
+            <input type="text" name="usuario" id="usuarioCad" />
+          </div>
+          <div>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senhaCad" />
+          </div>
+          <div>
+            <label for="perfil">Escolha o seu perfil</label>
+            <input
+              list="perfis"
+              name="perfil"
+              id="perfilCad"
+              autocomplete="off"
+            />
+            <datalist id="perfis">
+              <option value="">Perfil</option>
+              <option value="Gerente">Gerente</option>
+              <option value="Supervisor">Supervisor</option>
+              <option value="Vendedor">Vendedor</option>
+            </datalist>
+          </div>
+          <button type="button" onclick="cadPessoa()">Cadastrar</button>
+        </form>
+      </section>
+      <section class="formHello">
+        <div id="logout" onclick="showLogin()">Sair</div>
+        <span class="clear"></span>
+        <h1 id="nome">Olá</h1>
+        <h2 id="perfil">Olá</h2>
+      </section>
+    </main>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="./static/js/scripts.js"></script>
+<script>
+    verifyLogin = (dados) =>{
+        $.ajax({
+        type : 'POST',
+        url : "{{url_for('verificaUser')}}",
+        contentType: 'application/html;charset=UTF-8',
+        data : dados,
+          success: (response)=>{
+            if(JSON.parse(response)[0] == 1){
+                result = JSON.parse(response)[1];
+                window.location.href = window.location.href + result
+            } else {
+                alert(JSON.parse(response)[1]);
+            }
+          }
+      });
+    }
+    function envioCad(dados) {//FUNÇÃO PARA ENVIAR OS VALORES
+      $.ajax({
+        type : 'POST',
+        url : "{{url_for('createUser')}}",
+        contentType: 'application/json;charset=UTF-8',
+        data : dados,
+          success: (response)=>{
+            alert(JSON.parse(response)[1]);
+              if(JSON.parse(response)[0] == 1){
+                  window.location.href = window.location.href;
+              }
+          }
+      });
+    }
+</script>
+</html>

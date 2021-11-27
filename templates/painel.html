@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar usuários</title>
+    <link rel="stylesheet" href="./static/css/style.css" />
+</head>
+<body>
+    <table class="tableUser">
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Perfil</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in listaArquivo %}
+                {% if (x['user'] != session['username'])  %}
+                    <tr>
+                        <td>{{ x['user'] }}</td>
+                        <td>{{ x['perfil'] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        <tr><td colspan="2"><form action="{{ url_for("hello_world") }}" method="post">
+            <button type="submit" id="logout">Logout</button>
+        </form></td></tr>
+        </tbody>
+    </table>
+</body>
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="./static/js/scripts.js"></script>
+</html>

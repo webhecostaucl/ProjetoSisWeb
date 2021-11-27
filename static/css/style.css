@@ -1,0 +1,200 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+.principal {
+  width: 80%;
+  margin: 30px auto;
+  animation-name: fadeIn;
+  animation-duration: 8px;
+}
+
+.formLogin,
+.formCad {
+  width: 50%;
+  margin: 50px auto;
+  min-height: 500px;
+  background-color: rgba(26, 108, 156, 0.432);
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  text-align: center;
+}
+
+.formLogin label,
+.formCad label {
+  font-size: 25px;
+  color: white;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+.formLogin > form > div,
+.formCad > form > div {
+  border: 3px dotted rgba(168, 165, 165, 0.788);
+  width: 95%;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 15px;
+}
+.formCad {
+  display: none;
+}
+
+.formLogin input,
+.formCad input,
+.formLogin select,
+.formCad select {
+  width: 95%;
+  font-size: 22px;
+  padding-left: 15px;
+  margin: 5px auto;
+  border-radius: 5px;
+  height: 50px;
+  color: darkgray;
+}
+.formLogin button,
+.formCad button {
+  background-color: rgb(86, 165, 245);
+  width: 70%;
+  border-radius: 5px;
+  margin: 10px auto;
+  margin-top: -15px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+}
+
+.formLogin button:hover {
+  background-color: dodgerblue;
+  cursor: pointer;
+}
+
+.formLogin span {
+  display: block;
+  text-align: left;
+  padding-left: 15px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.formHello {
+  border: 1px dashed red;
+  min-height: 300px;
+  padding: 10px 20px;
+  text-align: center;
+  display: none;
+}
+
+#logout {
+  float: right;
+  color: blue;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#nome {
+  font-size: 35px;
+  color: dodgerblue;
+  border: 3px dotted green;
+  width: 30%;
+  margin: 50px auto 30px auto;
+  padding: 10px;
+}
+
+#perfil {
+  font-size: 30px;
+  color: cadetblue;
+  border: 1px solid blue;
+  width: 30%;
+  margin: 30px auto 30px auto;
+  padding: 10px;
+}
+
+table,tr,td,th {
+  background-color: lightseagreen;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 45px;
+}
+
+th,td{
+  width: 30%;
+}
+
+table {
+  height: 100%;
+}
+
+#logout {
+  width: 50%;
+  min-height: 50px;
+  background-color: yellow;
+  font-size: 65px;
+  border: 1px solid aqua;
+}
+
+#logout {
+  cursor: pointer;
+  background-color: red;
+  border: 1px solid lightseagreen;
+  color:white;
+  margin: auto;
+}
+
+td:hover,th:hover {
+  background-color: aqua;
+  cursor: crosshair;
+  color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .principal {
+    width: 95%;
+    margin: auto;
+  }
+  .formLogin,
+  .formCad {
+    width: 100%;
+  }
+
+  .formLogin > form > div,
+  .formCad > form > div {
+    padding: 10px;
+  }
+
+  .formLogin input,
+  .formCad input,
+  .formLogin select,
+  .formCad select {
+    width: 98%;
+    margin: auto;
+  }
+}
